@@ -1,0 +1,162 @@
+.chessboard-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px;
+  padding-left: 100px; /* Add more space on the left */
+}
+
+.chessboard {
+  width: 600px; /* Increased from 400px */
+  height: 600px; /* Increased from 400px */
+  border: 2px solid #333;
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.rank {
+  display: flex;
+  width: 100%;
+  height: 12.5%;
+}
+
+.square {
+  width: 12.5%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.square.light {
+  background-color: #f0d9b5;
+}
+
+.square.dark {
+  background-color: #b58863;
+}
+
+.square.selected {
+  background-color: #7fc97f;
+}
+
+.square svg {
+  width: 80%;
+  height: 80%;
+}
+
+.arrow {
+  position: absolute;
+  height: 6px; /* Increased from 4px for better visibility on larger board */
+  background-color: rgba(255, 0, 0, 0.7);
+  transform-origin: left center;
+  z-index: 10;
+}
+
+.arrow::after {
+  content: '';
+  position: absolute;
+  right: -12px; /* Adjusted for larger arrowhead */
+  top: -9px; /* Adjusted for larger arrowhead */
+  width: 0;
+  height: 0;
+  border-left: 18px solid rgba(255, 0, 0, 0.7); /* Increased from 12px */
+  border-top: 10px solid transparent; /* Increased from 7px */
+  border-bottom: 10px solid transparent; /* Increased from 7px */
+}
+
+.reset-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.reset-button:hover {
+  background-color: #45a049;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.control-button {
+  margin: 0 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.control-button:hover {
+  background-color: #45a049;
+}
+
+.knight-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.knight-number {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #000;
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 2px 4px;
+  border-radius: 50%;
+}
+
+.chessboard-wrapper {
+  display: flex;
+  align-items: stretch;
+}
+
+.move-count-bar {
+  width: 40px;
+  height: 600px;
+  background-color: #f0f0f0;
+  margin-left: 20px;
+  position: relative;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.move-count-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #4CAF50;
+  transition: height 0.3s ease;
+}
+
+.move-count-label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-90deg);
+  white-space: nowrap;
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+}
