@@ -7,8 +7,8 @@
 }
 
 .chessboard {
-  width: 600px; /* Increased from 400px */
-  height: 600px; /* Increased from 400px */
+  width: 600px;
+  height: 600px;
   border: 2px solid #333;
   display: flex;
   flex-wrap: wrap;
@@ -55,17 +55,18 @@
   z-index: 10;
 }
 
-.arrow::after {
+/* .arrow::after {
   content: '';
   position: absolute;
-  right: -12px; /* Adjusted for larger arrowhead */
-  top: -9px; /* Adjusted for larger arrowhead */
+  right: -12px; 
+  top: -9px; 
   width: 0;
   height: 0;
-  border-left: 18px solid rgba(255, 0, 0, 0.7); /* Increased from 12px */
-  border-top: 10px solid transparent; /* Increased from 7px */
-  border-bottom: 10px solid transparent; /* Increased from 7px */
+  border-left: 18px solid rgba(255, 0, 0, 0.7); 
+  border-top: 10px solid transparent; 
+  border-bottom: 10px solid transparent; 
 }
+*/
 
 .reset-button {
   margin-top: 20px;
@@ -87,6 +88,7 @@
   display: flex;
   justify-content: center;
   margin-top: 20px;
+  width: 100%;
 }
 
 .control-button {
@@ -103,6 +105,11 @@
 
 .control-button:hover {
   background-color: #45a049;
+}
+
+.control-button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
 }
 
 .knight-container {
@@ -128,14 +135,15 @@
 
 .chessboard-wrapper {
   display: flex;
+  flex-direction: column;
   align-items: stretch;
 }
 
 .move-count-bar {
-  width: 40px;
-  height: 600px;
+  width: 600px;
+  height: 40px;
   background-color: #f0f0f0;
-  margin-left: 20px;
+  margin-top: 20px;
   position: relative;
   border-radius: 5px;
   overflow: hidden;
@@ -143,20 +151,30 @@
 
 .move-count-progress {
   position: absolute;
-  bottom: 0;
+  top: 0;
   left: 0;
-  width: 100%;
+  height: 100%;
   background-color: #4CAF50;
-  transition: height 0.3s ease;
+  transition: width 0.3s ease;
 }
 
 .move-count-label {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) rotate(-90deg);
+  transform: translate(-50%, -50%);
   white-space: nowrap;
   font-size: 14px;
   font-weight: bold;
   color: #333;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+.move-count-label div {
+  margin: 0 5px;
 }
